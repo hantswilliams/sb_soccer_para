@@ -1,68 +1,134 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Soccer Statistics Analyzer
 
-## Available Scripts
+A React-based web application for analyzing soccer player performance data. This application allows users to upload standardized CSV files containing player statistics, visualize the data through interactive charts, and generate detailed PDF reports for individual player analysis.
 
-In the project directory, you can run:
+## Features
 
-### `yarn start`
+- **CSV Data Upload**: Upload and parse standardized soccer statistics CSV files
+- **Interactive Visualizations**:
+  - Player performance trends over time
+  - Team-based analysis and comparisons
+  - Position-based performance metrics
+  - Comparative analysis between players
+- **Comprehensive Analytics**:
+  - Distance covered
+  - Average and peak speeds
+  - Heart rate monitoring
+  - Minutes played
+  - Position-specific comparisons
+- **PDF Report Generation**:
+  - Detailed player performance reports
+  - Visual performance charts
+  - Comparative statistics
+  - Match-by-match analysis
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## CSV File Format
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+The application expects CSV files with the following columns:
+- PID (Player ID)
+- Team Name
+- Position
+- Match Date
+- Distance Covered (km)
+- Average Speed (km/h)
+- Peak Speed (km/h)
+- Average Heart Rate (bpm)
+- Peak Heart Rate (bpm)
+- Minutes Played
 
-### `yarn test`
+## Getting Started
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Local Development
 
-### `yarn build`
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd sb_soccer_para
+```
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Install dependencies:
+```bash
+npm install
+```
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+3. Start the development server:
+```bash
+npm start
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+The application will be available at `http://localhost:3000`
 
-### `yarn eject`
+### Building for Production
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+To create a production build:
+```bash
+npm run build
+```
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Docker Deployment
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+The application can also be run using Docker:
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+1. Build the Docker image:
+```bash
+docker build -t soccer-stats-app .
+```
 
-## Learn More
+2. Run the container:
+```bash
+docker run -d -p 3017:3017 --name soccer-stats soccer-stats-app
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The application will be available at `http://localhost:3017`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+For more detailed Docker instructions, see [instructions.md](instructions.md).
 
-### Code Splitting
+## Technologies Used
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+- React.js
+- Chart.js - For data visualization
+- Recharts - For interactive charts
+- @react-pdf/renderer - For PDF report generation
+- Papa Parse - For CSV parsing
+- Tailwind CSS - For styling
+- Docker - For containerization
 
-### Analyzing the Bundle Size
+## Application Structure
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+- `/src`
+  - `SoccerStatsApp.js` - Main application component
+  - `PlayerReport.js` - PDF report generation component
+  - `index.js` - Application entry point
+  - `index.css` - Global styles
+- `/public`
+  - Contains static assets and favicon
+- `Dockerfile` - Docker configuration
+- `instructions.md` - Detailed Docker deployment instructions
 
-### Making a Progressive Web App
+## Key Features Breakdown
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+### Data Analysis
+- Individual player performance tracking
+- Team-based statistics
+- Position-based comparisons
+- Match-by-match analysis
 
-### Advanced Configuration
+### Visualization
+- Performance trend charts
+- Comparative bar charts
+- Interactive data exploration
+- Position-based performance distribution
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+### Reporting
+- Downloadable PDF reports
+- Comprehensive player statistics
+- Visual performance indicators
+- Comparative analysis with position averages
 
-### Deployment
+## Contributing
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-### `yarn build` fails to minify
+## License
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+This project is licensed under the MIT License - see the LICENSE file for details.
